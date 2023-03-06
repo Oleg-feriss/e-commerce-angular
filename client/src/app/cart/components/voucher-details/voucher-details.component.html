@@ -1,0 +1,11 @@
+<div class="voucher">
+  <p class="voucher__label">
+    Code:
+    <span>{{ voucher.label }}(-{{ voucher.value }}%)</span>
+  </p>
+  <div
+    class="voucher__icon voucher__icon--close"
+    #closeIcon
+    (click)="onRemoveVoucher(closeIcon)"
+  ></div>
+</div>

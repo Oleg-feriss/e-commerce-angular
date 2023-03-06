@@ -1,0 +1,27 @@
+@use '/src/styles/variables' as var;
+@use '/src/styles/mixins' as mixins;
+
+.total-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: var.$fw-bold;
+
+  &__container {
+    display: flex;
+    column-gap: 1.5rem;
+  }
+
+  &__sum {
+    color: var.$color-secondary;
+
+    &--old {
+      text-decoration: line-through;
+    }
+
+    &--voucher {
+      color: var.$color-tertiary;
+      font-weight: var.$fw-bold;
+    }
+  }
+}

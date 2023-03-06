@@ -1,0 +1,61 @@
+//z-index
+$zi-header: 999;
+$zi-dropdown: 100;
+
+//font-size
+$fs-mobile: 0.9rem;
+$fs-tablet: 0.7rem;
+$fs-desktop: 0.55rem;
+$fs-small: 0.6rem;
+$fs-normal: 1rem;
+$fs-big: 1.2rem;
+$fs-product-title: 1.5rem;
+
+//font-family
+$ff-primary: 'Poppins', sans-serif;
+
+//font-weight
+$fw-light: 300;
+$fw-regular: 400;
+$fw-medium: 500;
+$fw-semibold: 600;
+$fw-bold: 700;
+
+//animation
+$anim-fast-ease: all 0.3s ease;
+$anim-normal-ease: all 0.5s ease;
+$anim-slow-ease: all 0.7s ease;
+$anim-menu-link: transform 0.3s ease;
+
+//breakpoints
+$breakpoint-tablet: 678px;
+$breakpoint-desktop-max: 1023px;
+$breakpoint-desktop: 1024px;
+$breakpoint-desktop-big: 1360px;
+
+//border-radius
+$br-primary: 0.25rem;
+
+//color
+$color-primary: #ffffff;
+$color-primary-dark: #f6f7f8;
+
+$color-secondary: #40bfff;
+$color-secondary-light: #bcddfe;
+$color-secondary-dark: #33a0ff;
+
+$color-tertiary: #ff6875;
+$color-tertiary-light: #fb7181;
+$color-tertiary-dark: #ff4858;
+
+$color-text-primary: #9098b1;
+$color-text-primary-light: #c1c8ce;
+$color-text-primary-dark: #22262a;
+
+$color-border-neutral-light: #ebf0ff;
+
+$color-valid: #2fe569;
+$color-facebook: #385c8e;
+$color-twitter: #03a9f4;
+$color-star: #ffd22b;
+$color-edit-button: rgba(34, 38, 42, 0.4);

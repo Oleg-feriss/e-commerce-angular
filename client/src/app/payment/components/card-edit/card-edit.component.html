@@ -1,0 +1,20 @@
+<app-user-subpage-nav routerLink="/account/payment"
+  >Edit Card</app-user-subpage-nav
+>
+<div class="card-edit">
+  <app-card [card]="card"></app-card>
+
+  <div class="card-edit__form-wrap">
+    <app-payment-form [card]="card" #paymentForm></app-payment-form>
+    <button class="card-edit__button" (click)="deleteCardDialog()">
+      Delete Card
+    </button>
+    <div class="card-edit__button-container">
+      <app-payment-button
+        routerLink="/account/payment"
+        (buttonClickedEvent)="onEdit()"
+        >Edit Card</app-payment-button
+      >
+    </div>
+  </div>
+</div>

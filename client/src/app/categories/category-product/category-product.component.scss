@@ -1,0 +1,61 @@
+@use '/src/styles/variables' as var;
+@use '/src/styles/mixins' as mixins;
+
+.product-card {
+  font-family: var.$ff-primary;
+
+  &__image {
+    height: 7.5em;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+    font-size: var.$fs-desktop;
+    font-weight: var.$fw-bold;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: inherit;
+    font-weight: inherit;
+  }
+
+  &__rating-container {
+    display: flex;
+    gap: 0.2em;
+  }
+
+  &__price {
+    color: var.$color-secondary;
+  }
+}
+
+@include mixins.desktopMaxBreakPoint {
+  .product-card {
+    box-shadow: none;
+    border: 1px solid var.$color-border-neutral-light;
+
+    .mat-card-image:first-child {
+      border-radius: 1.5em;
+    }
+  
+    &__image {
+      height: 100%;
+      padding: 1em;
+    }
+  
+    &__content {
+      align-items: flex-start;
+      gap: 0;
+      font-size: var.$fs-mobile;
+    }
+  
+    &__rating-container {
+      margin-bottom: 1em;
+    }
+  }
+}

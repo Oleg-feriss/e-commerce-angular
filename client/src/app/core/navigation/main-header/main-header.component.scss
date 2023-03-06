@@ -1,0 +1,105 @@
+@use '/src/styles/index' as *;
+
+.main-header {
+  @include desktopMaxBreakPoint {
+    display: none;
+  }
+
+  position: fixed;
+  top: 0;
+  z-index: $zi-header;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  background-color: $color-primary;
+  padding-inline: 7.5em;
+  font-size: $fs-desktop;
+
+  &__selectors {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+  }
+
+  &__info {
+    display: flex;
+    gap: 5em;
+  }
+
+  &__my-profile {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    cursor: pointer;
+
+    &:hover {
+      color: $color-secondary;
+    }
+  }
+
+  &__cart {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    position: relative;
+  }
+
+  &__counter {
+    &::before {
+      content: attr(counter);
+      position: absolute;
+      right: 30px;
+      top: -10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid $color-primary;
+      border-radius: 100%;
+      background-color: $color-tertiary-light;
+      width: 20px;
+      height: 20px;
+      color: $color-primary;
+    }
+  }
+}
+
+.mobile-header {
+  @include desktopMinBreakPoint {
+    display: none;
+  }
+
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  padding-inline: 2em;
+  padding-block: 1em;
+  font-size: $fs-mobile;
+
+  &__form {
+    width: 100%;
+  }
+
+  &__search-icon {
+    color: $color-secondary;
+  }
+
+  &__icons {
+    display: flex;
+    gap: 1em;
+  }
+}
+
+:host ::ng-deep .search-input {
+  .mat-form-field-appearance-fill .mat-form-field-flex {
+    border-radius: 1em;
+    border-color: $color-border-neutral-light;
+  }
+
+  .mat-form-field.mat-focused .mat-form-field-flex {
+    border-radius: 1em;
+  }
+}

@@ -1,0 +1,16 @@
+<app-user-subpage-nav routerLink="/account"
+  >Credit Card and Debit</app-user-subpage-nav
+>
+
+<div class="payments">
+  <div class="payments__cards-container">
+    <app-card
+      [routerLink]="['edit-card', card.cardNumber]"
+      *ngFor="let card of cards"
+      [card]="card"
+    ></app-card>
+  </div>
+  <div class="payments__button-container">
+    <app-payment-button routerLink="add-card">Add Card </app-payment-button>
+  </div>
+</div>

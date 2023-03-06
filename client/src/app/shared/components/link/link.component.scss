@@ -1,0 +1,24 @@
+@use '/src/styles/index' as *;
+
+.link {
+  display: flex;
+  justify-content: center;
+  column-gap: 0.25rem;
+  font-size: $fs-mobile;
+  color: $color-text-primary;
+
+  @include tabletMinBreakPoint {
+    font-size: $fs-tablet;
+  }
+
+  a {
+    font-weight: $fw-bold;
+    text-decoration: none;
+    color: $color-secondary;
+    transition: 0.2s ease-in-out;
+
+    &:hover {
+      color: $color-secondary-dark;
+    }
+  }
+}

@@ -1,0 +1,190 @@
+@use '/src/styles/variables' as var;
+@use '/src/styles/mixins' as mixins;
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &__header {
+    padding: 1rem 0;
+    display: flex;
+    align-items: center;
+  }
+
+  &__page-title {
+    letter-spacing: 1px;
+  }
+
+  &__user {
+    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+    height: 5rem;
+  }
+
+  &__photo {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 100px;
+    object-fit: cover;
+  }
+
+  &__name-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+    padding: 0 1rem;
+    height: 100%;
+  }
+
+  &__fullname {
+    font-size: 1.5rem;
+  }
+
+  &__username {
+    color: var.$color-text-primary-light;
+    font-size: 1.2rem;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+  }
+
+  &__item {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+  }
+
+  &__link {
+    grid-column: 1 / 2;
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+    text-decoration: none;
+    color: var.$color-text-primary-dark;
+    font-size: 1.1rem;
+    font-weight: var.$fw-semibold;
+    letter-spacing: 1px;
+  }
+
+  &__details {
+    grid-column: 2 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    column-gap: 1rem;
+
+    &-value {
+      color: var.$color-text-primary;
+      font-size: 1.25rem;
+      font-weight: var.$fw-light;
+      width: 7rem;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+
+  &__icon {
+    width: 2rem;
+    height: 2rem;
+    color: var.$color-secondary-dark;
+
+    &--next {
+      color: var.$color-text-primary;
+    }
+
+    &--previous {
+      transform: rotate(180deg);
+      color: var.$color-text-primary-light;
+    }
+  }
+
+  @include mixins.tabletMinBreakPoint {
+    &__link {
+      font-size: 1rem;
+    }
+
+    &__details-value {
+      font-size: 1rem;
+    }
+  }
+
+  @include mixins.desktopMinBreakPoint {
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-size: 16px;
+
+    &__header {
+      display: none;
+    }
+
+    &__content {
+      width: 50vw;
+    }
+
+    &__user {
+      height: clamp(5em, 6em, 7em);
+      cursor: pointer;
+    }
+
+    &__photo {
+      width: clamp(5em, 6em, 7em);
+      height: clamp(5em, 6em, 7em);
+      transition: 0.4s ease-in-out;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+
+    &__name-wrapper {
+      height: 100%;
+      transition: 0.4s ease-in-out;
+
+      &:hover {
+        background-color: var.$color-border-neutral-light;
+      }
+    }
+
+    &__fullname {
+      font-size: clamp(1em, 1.25em, 1.5em);
+    }
+
+    &__username {
+      font-size: clamp(0.8em, 1em, 1.25em);
+    }
+
+    &__item {
+      cursor: pointer;
+      padding: clamp(0.8em, 1em, 1.25em);
+
+      &:hover {
+        background-color: var.$color-border-neutral-light;
+      }
+    }
+
+    &__link {
+      font-size: clamp(0.8em, 1em, 1.25em);
+    }
+
+    &__icon {
+      width: 2em;
+      height: 2em;
+    }
+
+    &__details-value {
+      font-size: 1.25em;
+      width: auto;
+    }
+  }
+}

@@ -1,0 +1,6 @@
+<main class="main" [ngClass]="{ main__auth: shouldHideHeader() }">
+  <app-main-header></app-main-header>
+  <app-header *ngIf="!shouldHideHeader()"></app-header>
+  <router-outlet></router-outlet>
+  <app-mobile-menu *ngIf="!shouldHideHeader()"></app-mobile-menu>
+</main>

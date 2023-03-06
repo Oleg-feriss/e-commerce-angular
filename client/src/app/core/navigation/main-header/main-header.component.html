@@ -1,0 +1,49 @@
+<nav class="main-header">
+  <form class="main-header__selectors" [formGroup]="desktopFormGroup">
+    <app-select
+      [selectOptions]="languages"
+      name="language"
+      [group]="desktopFormGroup"
+    ></app-select>
+    <app-select
+      [selectOptions]="currencies"
+      name="currency"
+      [group]="desktopFormGroup"
+    ></app-select>
+  </form>
+  <div class="main-header__info">
+    <div class="main-header__my-profile" routerLink="/account/profile">
+      <mat-icon svgIcon="profile" aria-label="Profile icon"></mat-icon>
+      <p>My profile</p>
+    </div>
+    <div class="main-header__cart">
+      <span
+        class="main-header__counter"
+        *ngIf="cartCount$ | async as counter"
+        [attr.counter]="counter"
+      ></span>
+      <mat-icon svgIcon="cart" aria-label="Cart icon"></mat-icon>
+      <p>$0.00</p>
+    </div>
+    <div class="main-header__search">
+      <mat-icon svgIcon="search-icon" aria-label="Search icon"></mat-icon>
+    </div>
+  </div>
+</nav>
+<nav class="mobile-header" *ngIf="shouldShowMobileSearchHeader$ | async">
+  <form [formGroup]="mobileFormGroup" class="mobile-header__form">
+    <app-input
+      [group]="mobileFormGroup"
+      name="products"
+      icon="search"
+      class="search-input"
+    >
+      <p label>Search Product</p>
+      <p icon class="mobile-header__search-icon">search</p>
+    </app-input>
+  </form>
+  <div class="mobile-header__icons">
+    <mat-icon svgIcon="heart" aria-label="Heart icon"></mat-icon>
+    <mat-icon svgIcon="bell" aria-label="Bell icon"></mat-icon>
+  </div>
+</nav>

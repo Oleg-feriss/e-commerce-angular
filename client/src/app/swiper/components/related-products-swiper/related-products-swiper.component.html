@@ -1,0 +1,15 @@
+<swiper [config]="relatedProductsSwiperSettings">
+  <ng-template
+    *ngFor="let product of relatedProducts"
+    class="related-product"
+    swiperSlide
+  >
+    <div>
+      <div class="related-product__wrapper">
+        <img [src]="product.image" class="related-product__img" />
+        <p class="related-product__name">{{ product.name }}</p>
+        <p class="related-product__price">$ {{ product.price }}</p>
+      </div>
+    </div>
+  </ng-template>
+</swiper>

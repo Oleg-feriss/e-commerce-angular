@@ -1,0 +1,32 @@
+@use '/src/styles/variables' as var;
+@use '/src/styles/mixins' as mixins;
+
+.voucher {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__label {
+    display: flex;
+    column-gap: 1rem;
+    font-weight: var.$fw-bold;
+    span {
+      color: var.$color-tertiary-light;
+    }
+  }
+
+  &__icon {
+    transition: var.$anim-fast-ease;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0 1rem;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    background-color: var.$color-text-primary;
+
+    &--close {
+      mask-image: url('/assets/icons/close.svg');
+      -webkit-mask-image: url('/assets/icons/close.svg');
+    }
+  }
+}

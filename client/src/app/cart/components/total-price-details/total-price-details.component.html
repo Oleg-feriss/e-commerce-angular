@@ -1,0 +1,14 @@
+<div class="total-price">
+  <p>Total Price</p>
+  <div class="total-price__container">
+    <p
+      class="total-price__sum"
+      [ngClass]="{ 'total-price__sum--old': reducedPrice }"
+    >
+      ${{ totalPrice }}
+    </p>
+    <p *ngIf="reducedPrice" class="total-price__sum total-price__sum--voucher">
+      ${{ reducedPrice }}
+    </p>
+  </div>
+</div>

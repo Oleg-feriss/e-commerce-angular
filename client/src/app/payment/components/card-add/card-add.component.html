@@ -1,0 +1,17 @@
+<app-user-subpage-nav routerLink="/account/payment"
+  >Add Card</app-user-subpage-nav
+>
+
+<div class="card-add">
+  <div class="card-add__form-wrap">
+    <app-payment-form [card]="card" #paymentForm></app-payment-form>
+    <div class="card-add__button-container">
+      <app-payment-button
+        routerLink="/account/payment"
+        (buttonClickedEvent)="onAdd()"
+      >
+        Add Card
+      </app-payment-button>
+    </div>
+  </div>
+</div>

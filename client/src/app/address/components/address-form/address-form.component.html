@@ -1,0 +1,40 @@
+<section class="address-form">
+  <header class="address-form__header">
+    <mat-icon svgIcon="arrow_left" class="address-form__arrow-icon"></mat-icon>
+    <h1 class="address-form__page-title" routerLink="/account/address">
+      Addresses
+    </h1>
+  </header>
+  <div class="address-form__form-wrapper">
+    <form [formGroup]="formGroup" class="form" (submit)="onSubmit()">
+      <div class="form__fields">
+        <app-autocomplete-input
+          [group]="formGroup"
+          [options]="options"
+          [name]="countryFormField.name"
+          [type]="countryFormField.type"
+          [placeholder]="countryFormField.placeholder"
+          [customErrors]="countryFormField.customErrors"
+        >
+          <p label>{{ countryFormField.label }}</p>
+        </app-autocomplete-input>
+        <app-input
+          *ngFor="let field of formFields"
+          [group]="formGroup"
+          [name]="field.name"
+          [type]="field.type"
+          [placeholder]="field.placeholder"
+          [customErrors]="field.customErrors"
+          [maxLength]="field.maxLength"
+        >
+          <p label>{{ field.label }}</p>
+        </app-input>
+      </div>
+      <div class="form__controls">
+        <app-button type="submit" [disabled]="!formGroup.valid">{{
+          editedAddress ? 'Edit Address' : 'Add Address'
+        }}</app-button>
+      </div>
+    </form>
+  </div>
+</section>

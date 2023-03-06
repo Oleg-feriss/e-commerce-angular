@@ -1,0 +1,74 @@
+@use '/src/styles/index' as *;
+
+.card-edit {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 1rem;
+  min-height: 45rem;
+  height: 90%;
+
+  @include desktopMinBreakPoint {
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    justify-content: center;
+    margin-bottom: 1rem;
+    min-height: fit-content;
+    height: auto;
+  }
+
+  &__form-wrap {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    @include desktopMinBreakPoint {
+      flex: none;
+    }
+  }
+
+  &__button-container {
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+    width: clamp(280px, 24rem, 500px);
+    padding: 1rem 0;
+
+    @include desktopMinBreakPoint {
+      margin-top: 1rem;
+      width: 100%;
+      padding: 0;
+    }
+  }
+
+  &__button {
+    transition: $anim-fast-ease;
+    margin-top: 2rem;
+    border: none;
+    border-radius: $br-primary;
+    width: 100%;
+    height: 4rem;
+    background-color: $color-tertiary;
+    cursor: pointer;
+    font-size: $fs-big;
+    font-family: $ff-primary;
+    font-weight: $fw-bold;
+    letter-spacing: 0.5px;
+    color: $color-primary;
+
+    &:active {
+      transform: scale(1.03);
+      background-color: $color-secondary-dark;
+    }
+
+    @include desktopMinBreakPoint {
+      margin-top: 1rem;
+      height: 2.5rem;
+      max-height: 230px;
+      font-size: $fs-tablet;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+@use '/src/styles/mixins' as mixins;
+
+.main {
+  position: relative;
+  height: calc(100vh - 100px);
+
+  &__auth {
+    height: 100vh;
+  }
+
+  @include mixins.desktopMinBreakPoint {
+    height: calc(100vh - calc(min(4rem, 100px) + 50px));
+    top: calc(min(4rem, 100px) + 50px);
+
+    &__auth {
+      top: 0;
+    }
+  }
+}

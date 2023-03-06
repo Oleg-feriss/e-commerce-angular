@@ -1,0 +1,73 @@
+@use '/src/styles/index' as *;
+:host ::ng-deep {
+  .swiper {
+    margin-top: 0.5rem;
+  }
+
+  .product-images-slider {
+    overflow: hidden;
+
+    @include tabletMinBreakPoint {
+      border-radius: $br-primary;
+      max-width: 600px;
+    }
+
+    @include desktopMinBreakPoint {
+      width: 16rem;
+      height: 15rem;
+      margin-top: 1rem;
+    }
+  }
+
+  .images {
+    width: 100%;
+    height: 20rem;
+
+    &__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center bottom;
+
+      @include desktopMinBreakPoint {
+        object-fit: contain;
+        object-position: top;
+      }
+    }
+  }
+
+  .thumbs-swiper {
+    display: none;
+
+    @include desktopMinBreakPoint {
+      display: flex;
+      margin-top: 0.6rem;
+      height: 4rem;
+    }
+  }
+
+  .thumbs-swiper .swiper-slide {
+    flex: 1;
+    opacity: 0.3;
+    margin-right: 0.4rem;
+    border: 1.5px solid $color-text-primary-light;
+    border-radius: $br-primary;
+    height: 100%;
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+
+  .thumbs-swiper .swiper-slide-thumb-active {
+    opacity: 1;
+  }
+
+  .thumbs-swiper .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: $br-primary;
+  }
+}

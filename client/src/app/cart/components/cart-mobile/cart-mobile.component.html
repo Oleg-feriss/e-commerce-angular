@@ -1,0 +1,52 @@
+<section class="cart">
+  <h1 class="cart__heading">Your Cart</h1>
+  <div class="cart__content">
+    <ul class="cart__products">
+      <li *ngFor="let item of currentCart$ | async" class="cart__product">
+        <img [src]="item.image" [alt]="item.name" class="cart__product-image" />
+        <div class="cart__product-info">
+          <p class="cart__product-name">{{ item.name }}</p>
+          <p class="cart__product-size">size {{ item.size }}</p>
+          <p class="cart__product-price">${{ item.price }}</p>
+          <div class="cart__product-controls">
+            <div
+              class="cart__product-icon cart__product-icon--favorite"
+              #favIcon
+              (click)="handleIcon(favIcon)"
+            ></div>
+            <div
+              class="cart__product-icon cart__product-icon--bin"
+              #binIcon
+              (click)="onProductRemove(binIcon, item)"
+            ></div>
+          </div>
+          <app-quantity-controls
+            [product]="item"
+            [quantityChangeType]="quantityChangeType"
+            (quantityChange)="onQuantityChange($event, item)"
+          ></app-quantity-controls>
+        </div>
+      </li>
+    </ul>
+    <app-voucher-form (submitForm)="setVoucher($event)"></app-voucher-form>
+    <div class="cart__details">
+      <app-order-details
+        [details]="orderDetails"
+        [totalPrice]="currentCartItemsTotalPrice"
+      ></app-order-details>
+      <app-voucher-details
+        *ngIf="activeVoucher.label"
+        [voucher]="activeVoucher"
+        (removeVoucher)="removeVoucher()"
+      ></app-voucher-details>
+      <app-total-price-details
+        *ngIf="currentCartItemsTotalPrice"
+        [totalPrice]="cartTotalPrice"
+        [reducedPrice]="cartReducedTotalPrice"
+      ></app-total-price-details>
+    </div>
+    <app-button [disabled]="!(currentCartLength$ | async)!"
+      >Check Out</app-button
+    >
+  </div>
+</section>

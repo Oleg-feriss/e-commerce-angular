@@ -1,0 +1,69 @@
+@use '/src/styles/index' as *;
+
+.alert-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  &__icon {
+    width: 100%;
+    height: 5em;
+  }
+
+  &__message {
+    margin-top: 1em;
+  }
+
+  &__button-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.5em;
+    margin-top: 2em;
+    width: 100%;
+  }
+
+  &__button {
+    width: 100%;
+  }
+}
+
+:host ::ng-deep app-button.cancel-button .button {
+  box-shadow: none;
+  border: 1px solid $color-text-primary-light;
+  background-color: $color-primary;
+  color: $color-text-primary-light;
+
+  &:hover {
+    border-color: $color-secondary;
+    color: $color-secondary;
+  }
+}
+
+:host ::ng-deep app-button.delete-button .button {
+  &:hover {
+    transition: $anim-fast-ease;
+    background-color: $color-tertiary-light;
+  }
+}
+
+::ng-deep .mat-dialog-container {
+  padding: 4em;
+}
+
+@include desktopMaxBreakPoint {
+  ::ng-deep .cdk-overlay-pane {
+    height: 100%;
+    max-width: 100vw !important;
+    width: 100%;
+
+    .mat-dialog-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+    }
+  }
+}

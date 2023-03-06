@@ -1,0 +1,15 @@
+<div class="alert-modal">
+  <mat-icon svgIcon="alert" class="alert-modal__icon"></mat-icon>
+  <h2 class="alert-modal__title">Confirmation</h2>
+  <p class="alert-modal__message">Are you sure want to delete this address?</p>
+  <div class="alert-modal__button-wrapper">
+    <app-button class="alert-modal__button delete-button" (click)="onDelete()"
+      >Delete</app-button
+    >
+    <app-button
+      class="alert-modal__button cancel-button"
+      (click)="onCloseModal()"
+      >Cancel</app-button
+    >
+  </div>
+</div>

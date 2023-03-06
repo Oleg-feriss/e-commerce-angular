@@ -1,0 +1,50 @@
+<section class="account">
+  <h1
+    class="account__title"
+    [ngClass]="{ 'account__title--mobile': isRouteSelected }"
+  >
+    Account
+  </h1>
+  <ul
+    class="account__list"
+    [ngClass]="{ 'account__list--mobile': isRouteSelected }"
+  >
+    <li
+      class="account__item"
+      routerLink="profile"
+      routerLinkActive="account__item--active"
+    >
+      <a class="account__link">
+        <mat-icon svgIcon="person" class="account__icon"></mat-icon>
+        Profile</a
+      >
+    </li>
+    <li class="account__item" routerLink="order">
+      <a class="account__link">
+        <mat-icon svgIcon="order" class="account__icon"></mat-icon>
+        Order</a
+      >
+    </li>
+    <li class="account__item" routerLink="address">
+      <a class="account__link">
+        <mat-icon svgIcon="address" class="account__icon"></mat-icon>
+        Address</a
+      >
+    </li>
+    <li class="account__item" routerLink="payment">
+      <a class="account__link">
+        <mat-icon svgIcon="payment" class="account__icon"></mat-icon>
+        Payment</a
+      >
+    </li>
+    <li class="account__item" (click)="onLogout()">
+      <a class="account__link">
+        <mat-icon svgIcon="logout" class="account__icon"></mat-icon>
+        Log Out</a
+      >
+    </li>
+  </ul>
+  <div class="account__content">
+    <router-outlet></router-outlet>
+  </div>
+</section>

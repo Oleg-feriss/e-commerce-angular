@@ -1,0 +1,75 @@
+import { InputField } from '@shared/models';
+
+export const ADDRESS_FIELDS: InputField[] = [
+  {
+    name: 'name',
+    type: 'text',
+    errorType: 'pattern',
+    placeholder: 'Ahmad',
+    label: 'First Name',
+    icon: '',
+  },
+  {
+    name: 'surname',
+    type: 'text',
+    errorType: 'pattern',
+    placeholder: 'Khaidir',
+    label: 'Last Name',
+    icon: '',
+  },
+  {
+    name: 'firstAddress',
+    type: 'text',
+    errorType: '',
+    placeholder: '7021 Parker Rd',
+    label: 'Street Address',
+    icon: '',
+  },
+  {
+    name: 'secondAddress',
+    type: 'text',
+    errorType: '',
+    placeholder: '4333 Edwards Rd',
+    label: 'Street Address 2 (Optional)',
+    icon: '',
+  },
+  {
+    name: 'city',
+    type: 'text',
+    errorType: '',
+    placeholder: 'Richardson',
+    label: 'City',
+    icon: '',
+  },
+  {
+    name: 'state',
+    type: 'text',
+    errorType: '',
+    placeholder: 'Oregon',
+    label: 'State/Province/Region',
+    icon: '',
+  },
+  {
+    name: 'zipCode',
+    type: 'text',
+    errorType: '',
+    placeholder: '57-793',
+    label: 'Zip Code',
+    icon: '',
+    maxLength: 6,
+    customErrors: {
+      zipCodeLength: 'Provided ZIP code must consist of 5 numbers',
+    },
+  },
+  {
+    name: 'phoneNumber',
+    type: 'tel',
+    errorType: '',
+    placeholder: '(48) 555-011-642',
+    label: 'Phone Number',
+    icon: '',
+    customErrors: {
+      phoneNumberLength: 'Provided phone number must consist of 11 numbers',
+    },
+  },
+];

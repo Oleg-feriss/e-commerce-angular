@@ -1,0 +1,28 @@
+<app-sign-in-up-template>
+  <ng-container
+    *ngIf="(isUserCreated$ | async) === false; else successMessage"
+    content
+  >
+    <app-sign-in-up-header>
+      <p title>Let's Get Started</p>
+      <p description>Create a new account</p>
+    </app-sign-in-up-header>
+    <app-form
+      [group]="formGroup"
+      [fields]="formFields"
+      (submitForm)="onSubmit()"
+    >
+      <p>Sign up</p>
+    </app-form>
+    <app-link linkPath="/login">
+      <p descText>Have an account?</p>
+      <p linkText>Sign in</p>
+    </app-link>
+  </ng-container>
+  <ng-template #successMessage content>
+    <app-link linkPath="/login">
+      <p descText>User created successfully!</p>
+      <p linkText>Login</p>
+    </app-link>
+  </ng-template>
+</app-sign-in-up-template>

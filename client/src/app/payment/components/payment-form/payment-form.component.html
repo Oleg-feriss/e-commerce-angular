@@ -1,0 +1,77 @@
+<form class="form" [formGroup]="paymentForm" (ngSubmit)="onSubmit()">
+  <div class="form__column">
+    <label class="form__label">Card Number</label>
+    <input
+      class="form__input"
+      type="text"
+      placeholder=" "
+      formControlName="cardNumber"
+      maxlength="19"
+    />
+    <label class="input-label">Card Number</label>
+    <span
+      class="form__error"
+      *ngIf="hasError('cardNumber', 'cardNumberWithLetters')"
+      >Can contain only numbers.</span
+    >
+    <span class="form__error" *ngIf="hasError('cardNumber', 'cardNumberLength')"
+      >Have to be 16 digits long.</span
+    >
+    <span
+      class="form__error"
+      *ngIf="hasError('cardNumber', 'cardNumberUniqueness')"
+      >Card with that number is already added.</span
+    >
+  </div>
+
+  <div class="form__row">
+    <div class="form__column">
+      <label class="form__label">Expiration Date</label>
+      <input
+        class="form__input"
+        type="text"
+        placeholder=" "
+        formControlName="expirationDate"
+        maxlength="5"
+      />
+      <label class="input-label">Expiration Date</label>
+      <span
+        class="form__error"
+        *ngIf="hasError('expirationDate', 'cardExpirationDate')"
+        >Enter correct expiration date in MM/YY format</span
+      >
+    </div>
+    <div class="form__column">
+      <label class="form__label">Security Code</label>
+      <input
+        class="form__input"
+        type="text"
+        placeholder=" "
+        formControlName="securityCode"
+      />
+      <label class="input-label">Security Code</label>
+      <span class="form__error" *ngIf="hasError('securityCode', 'securityCode')"
+        >Only numbers and have to be 3-4 digits long.</span
+      >
+    </div>
+  </div>
+
+  <div class="form__column">
+    <label class="form__label">Card Holder</label>
+    <input
+      class="form__input"
+      type="text"
+      placeholder=" "
+      formControlName="cardHolder"
+    />
+    <label class="input-label">Card Holder</label>
+    <span
+      class="form__error"
+      *ngIf="hasError('cardHolder', 'cardHolderCharacters')"
+      >Can't contain special characters and numbers.</span
+    >
+    <span class="form__error" *ngIf="hasError('cardHolder', 'cardHolderLength')"
+      >Have to be atleast 2 characters long.</span
+    >
+  </div>
+</form>

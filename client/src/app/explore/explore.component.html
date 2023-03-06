@@ -1,0 +1,18 @@
+<section class="explore">
+  <h1>Explore</h1>
+  <ul class="explore__category-list">
+    <li
+      *ngFor="let category of categories$ | async"
+      class="explore__category-item"
+    >
+      <h2 class="explore__category-heading">{{ category.label }}</h2>
+      <ul class="explore__subcategory-list">
+        <app-category-item
+          *ngFor="let subcategory of category.subcategories"
+          [category]="subcategory"
+          [categoryLink]="'/products/' + category.name + '/' + subcategory.name"
+        ></app-category-item>
+      </ul>
+    </li>
+  </ul>
+</section>

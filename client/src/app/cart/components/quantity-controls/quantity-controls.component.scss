@@ -1,0 +1,55 @@
+@use '/src/styles/variables' as var;
+@use '/src/styles/mixins' as mixins;
+
+.quantity {
+  flex: 1;
+  display: flex;
+
+  &--flex {
+    flex: 2;
+    justify-content: flex-end;
+    gap: 1rem;
+  }
+
+  &__controls {
+    padding: 0.5rem 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: var.$br-primary;
+    width: 7rem;
+    background-color: var.$color-primary-dark;
+    font-size: 1rem;
+    font-family: var.$ff-primary;
+    font-weight: var.$fw-light;
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+  }
+
+  &__control {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var.$anim-fast-ease;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 1rem;
+    height: 1rem;
+    font-weight: var.$fw-bold;
+    color: var.$color-secondary-dark;
+
+    &:hover {
+      transform: scale(1.15);
+      background-color: var.$color-secondary-dark;
+      color: var.$color-text-primary-dark;
+    }
+
+    &:disabled {
+      background-color: transparent;
+      color: var.$color-text-primary-light;
+    }
+  }
+}

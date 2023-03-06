@@ -1,0 +1,113 @@
+<section class="profile">
+  <header class="profile__header" routerLink="/account">
+    <mat-icon
+      svgIcon="arrow_right"
+      class="profile__icon profile__icon--previous"
+    ></mat-icon>
+    <h1 class="profile__page-title">Account</h1>
+  </header>
+  <div class="profile__content">
+    <div class="profile__user">
+      <img
+        [src]="userImage"
+        alt="User avatar image"
+        class="profile__photo"
+        matTooltip="Change photo"
+        matTooltipPosition="below"
+        matTooltipHideDelay="100"
+        matTooltipShowDelay="100"
+        routerLink="/account/profile/change-profile-photo"
+      />
+      <div
+        class="profile__name-wrapper"
+        routerLink="change-name"
+        matTooltip="Change name and surname"
+        matTooltipPosition="below"
+        matTooltipHideDelay="100"
+        matTooltipShowDelay="100"
+      >
+        <h2 class="profile__fullname">
+          {{ currentUser.name }} {{ currentUser.surname }}
+        </h2>
+        <p class="profile__username">
+          @{{ currentUser.name }}_{{ currentUser.surname }}
+        </p>
+      </div>
+    </div>
+    <ul class="profile__list">
+      <li class="profile__item" routerLink="change-gender">
+        <a class="profile__link">
+          <mat-icon svgIcon="male" class="profile__icon"></mat-icon>
+          Gender</a
+        >
+        <div class="profile__details">
+          <span class="profile__details-value">{{
+            currentUser.gender ? currentUser.gender : 'not specified'
+          }}</span>
+          <mat-icon
+            svgIcon="arrow_right"
+            class="profile__icon profile__icon--next"
+          ></mat-icon>
+        </div>
+      </li>
+      <li class="profile__item" routerLink="change-birthday">
+        <a class="profile__link">
+          <mat-icon svgIcon="calendar" class="profile__icon"></mat-icon>
+          Birthday</a
+        >
+        <div class="profile__details">
+          <span class="profile__details-value">{{
+            currentUserBirthdayDate
+          }}</span>
+          <mat-icon
+            svgIcon="arrow_right"
+            class="profile__icon profile__icon--next"
+          ></mat-icon>
+        </div>
+      </li>
+      <li class="profile__item" routerLink="change-email-address">
+        <a class="profile__link">
+          <mat-icon svgIcon="mail" class="profile__icon"></mat-icon>
+          E-mail</a
+        >
+        <div class="profile__details">
+          <span class="profile__details-value">{{
+            currentUser.email || 'set e-mail address'
+          }}</span>
+          <mat-icon
+            svgIcon="arrow_right"
+            class="profile__icon profile__icon--next"
+          ></mat-icon>
+        </div>
+      </li>
+      <li class="profile__item" routerLink="change-phone-number">
+        <a class="profile__link">
+          <mat-icon svgIcon="phone" class="profile__icon"></mat-icon>
+          Phone Number</a
+        >
+        <div class="profile__details">
+          <span class="profile__details-value">{{
+            currentUser.phoneNumber || 'Set phone number'
+          }}</span>
+          <mat-icon
+            svgIcon="arrow_right"
+            class="profile__icon profile__icon--next"
+          ></mat-icon>
+        </div>
+      </li>
+      <li class="profile__item" routerLink="change-password">
+        <a class="profile__link">
+          <mat-icon svgIcon="lock" class="profile__icon"></mat-icon>
+          Change Password</a
+        >
+        <div class="profile__details">
+          <span class="profile__details-value">********</span>
+          <mat-icon
+            svgIcon="arrow_right"
+            class="profile__icon profile__icon--next"
+          ></mat-icon>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>

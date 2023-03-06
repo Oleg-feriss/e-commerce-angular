@@ -1,0 +1,22 @@
+<swiper [config]="salesSwiperSettings">
+  <ng-template *ngFor="let sale of sales" swiperSlide>
+    <div class="sale">
+      <img
+        class="sale__image"
+        [src]="sale.image"
+        alt="background image of currently ongoing sale"
+      />
+      <div class="sale__content">
+        <p class="sale__text">{{ sale.text }}</p>
+        <app-timer [saleEnd]="sale.saleEnd"></app-timer>
+      </div>
+    </div>
+    <div class="sale-products">
+      <div *ngFor="let product of sale.products" class="sale-product">
+        <img [src]="product.image" class="sale-product__image" />
+        <p class="sale-product__name">{{ product.name }}</p>
+        <p class="sale-product__price">${{ product.price }}</p>
+      </div>
+    </div>
+  </ng-template>
+</swiper>

@@ -1,0 +1,18 @@
+<div class="quantity">
+  <div class="quantity__controls">
+    <button
+      class="quantity__control"
+      (click)="onQuantityChange(quantityChangeType.Decrease)"
+      [disabled]="product.quantity === 1"
+    >
+      -
+    </button>
+    <p>{{ product.quantity }}</p>
+    <button
+      class="quantity__control"
+      (click)="onQuantityChange(quantityChangeType.Increase)"
+    >
+      +
+    </button>
+  </div>
+</div>

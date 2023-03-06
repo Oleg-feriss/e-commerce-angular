@@ -1,0 +1,11 @@
+<li class="category">
+  <a [routerLink]="categoryLink" class="category__link">
+    <div class="category__icon">
+      <mat-icon
+        [svgIcon]="category.icon"
+        attr.aria-label="{{ category.label }} icon"
+      ></mat-icon>
+    </div>
+    {{ category.label }}</a
+  >
+</li>

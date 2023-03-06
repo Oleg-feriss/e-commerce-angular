@@ -1,0 +1,44 @@
+@use '/src/styles/index' as *;
+
+:host ::ng-deep {
+  .timer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    width: fit-content;
+    height: fit-content;
+    font-size: $fs-big;
+    font-family: $ff-primary;
+    font-weight: $fw-bold;
+    color: $color-primary;
+
+    @include desktopMinBreakPoint {
+      display: none;
+    }
+
+    &__time {
+      display: grid;
+      place-items: center;
+      border-radius: $br-primary;
+      padding: 0.6rem 0.8rem;
+      min-width: 3.4rem;
+      background-color: $color-primary;
+      font-size: $fs-big;
+      letter-spacing: 0.5px;
+      color: $color-text-primary-dark;
+    }
+
+    &__text {
+      font-size: $fs-product-title;
+      font-family: $ff-primary;
+      font-weight: $fw-semibold;
+      text-transform: uppercase;
+      color: $color-tertiary;
+
+      @include desktopMinBreakPoint {
+        display: none;
+      }
+    }
+  }
+}

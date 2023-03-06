@@ -1,0 +1,34 @@
+@use '/src/styles/index' as *;
+
+.signinup {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 1rem;
+  display: flex;
+
+  @include tabletMinBreakPoint {
+    row-gap: 0.5rem;
+    font-size: $fs-tablet;
+  }
+
+  &__logo {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    border-radius: 16px;
+    width: 72px;
+    height: 72px;
+    background: $color-secondary;
+  }
+
+  &__title {
+    font-weight: $fw-bold;
+    color: $color-text-primary-dark;
+  }
+
+  &__description {
+    font-weight: $fw-regular;
+    color: $color-text-primary;
+  }
+}

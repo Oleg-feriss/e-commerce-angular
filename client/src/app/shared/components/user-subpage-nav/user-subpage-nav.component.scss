@@ -1,0 +1,32 @@
+@use '/src/styles/index' as *;
+
+.user-subpage-nav {
+  display: flex;
+  align-items: center;
+  padding: 1rem 0;
+  cursor: pointer;
+
+  &:hover &__title {
+    padding-left: 0.5rem;
+  }
+
+  @include desktopMinBreakPoint {
+    border-bottom: 2px solid $color-primary-dark;
+    padding: 0.5rem;
+  }
+
+  &__title {
+    transition: $anim-fast-ease;
+    font-size: $fs-big;
+    letter-spacing: 1px;
+    color: $color-text-primary-dark;
+
+    @include desktopMinBreakPoint {
+      font-size: $fs-normal;
+    }
+  }
+
+  &__icon {
+    color: $color-text-primary-light;
+  }
+}

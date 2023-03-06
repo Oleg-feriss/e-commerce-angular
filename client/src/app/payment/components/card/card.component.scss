@@ -1,0 +1,111 @@
+@use '/src/styles/index' as *;
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  border-radius: $br-primary;
+  width: clamp(280px, 24rem, 500px);
+  padding: 1.5rem;
+  background-color: $color-secondary;
+
+  @include desktopMinBreakPoint {
+    gap: 1rem;
+    width: clamp(300px, 17rem, 550px);
+    cursor: pointer;
+  }
+
+  &__icon {
+    position: relative;
+    width: 4rem;
+    height: 2rem;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      opacity: 0.4;
+      border-radius: 50%;
+      width: 2rem;
+      height: 2rem;
+      background-color: $color-text-primary-dark;
+    }
+
+    &::after {
+      left: 1.25rem;
+    }
+
+    @include desktopMinBreakPoint {
+      transform: scale(0.7);
+      transform-origin: 0%;
+    }
+  }
+
+  &__button {
+    position: absolute;
+    align-self: flex-end;
+    display: grid;
+    place-items: center;
+    transition: $anim-fast-ease;
+    border-radius: $br-primary;
+    min-height: 2rem;
+    padding: 0 0.7rem;
+    background-color: $color-edit-button;
+    white-space: nowrap;
+    font-size: $fs-mobile;
+    font-family: $ff-primary;
+    color: $color-primary;
+
+   .card:hover & {
+      background-color: $color-secondary-light;
+      color: $color-text-primary;
+    }
+
+    @include desktopMinBreakPoint {
+      transform: scale(0.7);
+      transform-origin: 100%;
+    }
+  }
+
+  &__number {
+    font-size: $fs-product-title;
+    font-family: $ff-primary;
+    font-weight: $fw-bold;
+    word-spacing: 0.8rem;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    color: $color-primary;
+
+    @include desktopMinBreakPoint {
+      font-size: $fs-normal;
+      word-spacing: 0.5rem;
+    }
+  }
+}
+
+.card-info {
+  display: flex;
+  gap: 2rem;
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  &__text {
+    font-size: $fs-normal;
+    font-family: $ff-primary;
+    font-weight: $fw-semibold;
+    color: $color-primary;
+
+    &--header {
+      opacity: 0.6;
+    }
+
+    @include desktopMinBreakPoint {
+      font-size: $fs-small;
+    }
+  }
+}

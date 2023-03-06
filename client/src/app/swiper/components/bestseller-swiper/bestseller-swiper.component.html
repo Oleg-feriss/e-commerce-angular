@@ -1,0 +1,15 @@
+<swiper [config]="bestsellerSwiperSettings">
+  <ng-template
+    *ngFor="let product of bestsellers"
+    class="bestseller"
+    swiperSlide
+  >
+    <div class="bestseller__wrapper">
+      <img [src]="product.image" class="bestseller__img" />
+      <div class="bestseller__info">
+        <app-rating [rating]="product.rating"></app-rating>
+        <p class="bestseller__price">$ {{ product.price }}</p>
+      </div>
+    </div>
+  </ng-template>
+</swiper>

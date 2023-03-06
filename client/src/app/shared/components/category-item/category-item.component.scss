@@ -1,0 +1,56 @@
+@use '/src/styles/index' as *;
+
+.category {
+  list-style: none;
+  color: $color-text-primary;
+
+  &__link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 0.5rem;
+    text-decoration: none;
+    color: $color-text-primary;
+    letter-spacing: 1px;
+
+    &--active {
+      color: $color-secondary;
+      font-weight: $fw-bold;
+      letter-spacing: 1px;
+    }
+
+    &--column {
+      flex-direction: column;
+    }
+  }
+
+  &__icon {
+    border: 1px solid $color-text-primary-light;
+    border-radius: 100%;
+    padding: 1rem;
+    color: $color-secondary;
+
+    mat-icon {
+      height: 2rem;
+      width: 2rem;
+    }
+  }
+
+  @include tabletMinBreakPoint {
+    font-size: $fs-tablet;
+
+    &__link {
+      font-size: 1rem;
+    }
+
+    &__icon mat-icon {
+      height: 3rem;
+      width: 3rem;
+    }
+  }
+
+  @include desktopMinBreakPoint {
+    display: none;
+  }
+}

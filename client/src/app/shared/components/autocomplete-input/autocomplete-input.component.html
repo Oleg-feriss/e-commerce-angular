@@ -1,0 +1,28 @@
+<mat-form-field
+  class="autocomplete-container"
+  appClickOutside
+  (clickOutside)="onOutsideClick()"
+  appearance="fill"
+>
+  <mat-label><ng-content select="[label]"></ng-content></mat-label>
+  <input
+    matInput
+    (focus)="toggleDropDown()"
+    autocomplete="off"
+    [type]="type"
+    [placeholder]="placeholder"
+    [formControlName]="name"
+  />
+  <div class="option-container" *ngIf="showOptions">
+    <div
+      class="option"
+      *ngFor="let option of options | searchFilter: getSearchValue()"
+      (click)="selectValue(option)"
+    >
+      {{ option }}
+    </div>
+  </div>
+  <mat-error *ngFor="let error of errorMessages">
+    {{ error }}
+  </mat-error>
+</mat-form-field>

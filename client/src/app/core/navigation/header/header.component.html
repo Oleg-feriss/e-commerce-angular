@@ -1,0 +1,40 @@
+<nav class="header">
+  <div class="logo-container">
+    <a class="logo" routerLink="">
+      <figure class="logo__wrapper">
+        <img
+          src="../../../../assets/icons/logo_icon.svg"
+          alt="E-commerce app logo"
+          class="logo__icon"
+        />
+      </figure>
+      <p class="logo__text">E-comm</p>
+    </a>
+  </div>
+  <ul class="menu">
+    <li *ngFor="let item of menuItems$ | async" class="menu__item">
+      <a
+        [routerLink]="['/products/', item.name]"
+        routerLinkActive="menu__link--active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="menu__link"
+      >
+        {{ item.label }}
+      </a>
+      <ul class="dropdown-content" *ngIf="item.hasOwnProperty('subcategories')">
+        <h3 class="dropdown-content__title">Category</h3>
+        <li
+          *ngFor="let subcategory of item.subcategories"
+          class="dropdown-content__item"
+        >
+          <a
+            [routerLink]="['/products/', item.name, subcategory.name]"
+            routerLinkActive="menu__link--active"
+            class="menu__link menu__link--subcategory"
+            >{{ subcategory.label }}</a
+          >
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>

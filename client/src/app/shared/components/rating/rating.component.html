@@ -1,0 +1,5 @@
+<div
+  class="rating"
+  *ngFor="let star of stars; let i = index"
+  [ngClass]="{ 'rating--filled': i < rating }"
+></div>

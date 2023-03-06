@@ -1,0 +1,5 @@
+@use '/src/styles/index' as *;
+
+.error-text {
+  color: $color-tertiary-dark;
+}

@@ -1,0 +1,23 @@
+@use '/src/styles/variables' as var;
+@use '/src/styles/mixins' as mixins;
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem 0;
+  list-style: none;
+
+  &__item,
+  &__price {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__item {
+    color: var.$color-text-primary;
+  }
+
+  &__price {
+    color: var.$color-text-primary-dark;
+  }
+}

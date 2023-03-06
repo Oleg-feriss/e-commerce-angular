@@ -1,0 +1,28 @@
+@use '/src/styles/index' as *;
+
+.button {
+  box-shadow: 0px 10px 30px rgba(64, 191, 255, 0.24);
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  padding: 1.25em 0;
+  background-color: $color-secondary;
+  cursor: pointer;
+  font-size: $fs-mobile;
+  font-weight: $fw-bold;
+  color: $color-primary;
+
+  @include tabletMinBreakPoint {
+    font-size: $fs-tablet;
+  }
+
+  @include desktopMinBreakPoint {
+    font-size: $fs-desktop;
+  }
+
+  &:disabled {
+    background-color: #ccc;
+    box-shadow: 0px 10px 30px rgba(82, 82, 82, 0.24);
+    cursor: not-allowed;
+  }
+}

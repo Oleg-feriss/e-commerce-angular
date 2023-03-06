@@ -1,0 +1,7 @@
+<swiper class="swiper-sizes" [config]="sizesSwiperSettings">
+  <ng-template *ngFor="let size of sizes" class="sizes" swiperSlide>
+    <div class="size" #pickedSize (click)="onPick(pickedSize)">
+      {{ size }}
+    </div>
+  </ng-template>
+</swiper>

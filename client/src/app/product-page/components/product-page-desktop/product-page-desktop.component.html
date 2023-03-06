@@ -1,0 +1,197 @@
+<div class="container">
+  <nav class="breadcrumbs-nav">
+    <p class="breadcrumbs-nav__text">Home / Hot Deal / Nike Air Max 270</p>
+  </nav>
+  <div class="product-container">
+    <div class="product-wrapper">
+      <div class="product">
+        <div class="product-images">
+          <app-product-images-swiper
+            [productImages]="product.images"
+          ></app-product-images-swiper>
+        </div>
+
+        <div class="product-info">
+          <h3 class="product-info__name">{{ product.name }}</h3>
+
+          <div class="product-info__reviews">
+            <app-rating [rating]="product.rating"></app-rating>
+            <p class="rating-text">{{ product.reviews.length }} reviews</p>
+            <p class="rating-text rating-text--submit">Submit a review</p>
+          </div>
+
+          <hr />
+
+          <p class="product-info__price">$ {{ product.price }}</p>
+
+          <div class="product-info__item">
+            <p class="product-info__text product-info__text--small">
+              Availability
+            </p>
+            <p class="product-info__text product-info__text--small">In stock</p>
+          </div>
+
+          <div class="product-info__item">
+            <p class="product-info__text product-info__text--small">Category</p>
+            <p class="product-info__text product-info__text--small">Shoes</p>
+          </div>
+
+          <div class="product-info__item">
+            <p
+              class="product-info__text product-info__text--small product-info__text--padding"
+            >
+              Free shipping
+            </p>
+          </div>
+
+          <hr />
+
+          <div
+            class="product-info__item product-info__item--padding product-info__item--colors"
+          >
+            <p class="product-info__text product-info__text--normal">
+              Select Color
+            </p>
+            <app-colors-swiper
+              [colors]="product.colors"
+              (pickColor)="setProductColor($event)"
+            ></app-colors-swiper>
+          </div>
+
+          <div class="product-info__item product-info__item--padding">
+            <p class="product-info__text product-info__text--normal">
+              Select Size
+            </p>
+            <select
+              class="product-info__sizes"
+              name="size"
+              id="size"
+              [(ngModel)]="productSize"
+            >
+              <option
+                *ngFor="let size of product.sizes"
+                [value]="size | number"
+              >
+                {{ size }}
+              </option>
+            </select>
+          </div>
+
+          <hr />
+
+          <div class="product-info__buttons">
+            <div class="button-wrapper">
+              <div class="quantity">
+                <p
+                  class="quantity__change"
+                  (click)="onQuantityChange(quantityChangeType.Decrease)"
+                >
+                  -
+                </p>
+                <p>{{ quantity }}</p>
+                <p
+                  class="quantity__change"
+                  (click)="onQuantityChange(quantityChangeType.Increase)"
+                >
+                  +
+                </p>
+              </div>
+            </div>
+
+            <div class="button-wrapper button-wrapper--flex">
+              <button
+                class="add-to-cart"
+                (click)="addToCart()"
+                [disabled]="isButtonDisabled"
+              >
+                <mat-icon svgIcon="shopping_cart"></mat-icon>Add To Cart
+              </button>
+
+              <div class="add-to-favorites" (click)="addToFavorites(favIcon)">
+                <div
+                  class="add-to-favorites__icon"
+                  svgIcon="add-favorite"
+                  #favIcon
+                ></div>
+              </div>
+            </div>
+          </div>
+
+          <hr />
+
+          <div class="product-buttons">
+            <button class="button button--fb">
+              <mat-icon svgIcon="facebook"></mat-icon> Share on Facebook
+            </button>
+
+            <button class="button button--tw">
+              <mat-icon svgIcon="twitter"></mat-icon> Share on Twitter
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-details">
+        <ul class="product-details__header">
+          <li
+            class="product-details__tab"
+            (click)="onTabChange(tabChangeType.Info)"
+            [ngClass]="{
+              'product-details__tab--active': tab === tabChangeType.Info
+            }"
+          >
+            Product Information
+          </li>
+
+          <li
+            class="product-details__tab"
+            (click)="onTabChange(tabChangeType.Reviews)"
+            [ngClass]="{
+              'product-details__tab--active': tab === tabChangeType.Reviews
+            }"
+          >
+            Reviews <span>{{ product.reviews.length }}</span>
+          </li>
+        </ul>
+
+        <p class="product-details__text" *ngIf="tab === tabChangeType.Info">
+          {{ product.description }}
+        </p>
+
+        <ng-container *ngIf="tab === tabChangeType.Reviews">
+          <div class="product-review" *ngFor="let review of product.reviews">
+            <div class="user">
+              <img class="user__photo" [src]="review.user.photo" alt="" />
+              <div class="user__info">
+                <p class="user__name">
+                  {{ review.user.name }} {{ review.user.surname }}
+                </p>
+                <app-rating [rating]="product.rating"></app-rating>
+              </div>
+            </div>
+
+            <p class="product-details__text product-details__text--review">
+              {{ review.description }}
+            </p>
+
+            <div class="product-review__images-wrap">
+              <img
+                class="product-review__image"
+                *ngFor="let image of review.images"
+                [src]="image"
+                alt="product images attached to the review"
+              />
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+
+    <div class="bestsellers">
+      <h3 class="bestsellers__text">BEST SELLER</h3>
+      <app-bestseller-swiper
+        [bestsellers]="relatedProducts"
+      ></app-bestseller-swiper>
+    </div>
+  </div>
+</div>

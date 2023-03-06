@@ -1,0 +1,6 @@
+{
+  "mongoURI": "mongodb+srv://User:4pNvRR0hWcLrr9U6@commerse.mwcjwp7.mongodb.net/ECOMM?retryWrites=true&w=majority",
+  "passwordSaltRounds": 10,
+  "jwtSecret": "jwtSecretToken",
+  "jwtExpiration": 360000
+}

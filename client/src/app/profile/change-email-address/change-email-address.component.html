@@ -1,0 +1,35 @@
+<section class="change-page">
+  <ng-container
+    *ngIf="(isEmailUpdated$ | async) === false; else successMessage"
+  >
+    <header class="change-page__header">
+      <mat-icon
+        svgIcon="arrow_left"
+        class="change-page__icon"
+        routerLink="/account/profile"
+        matTooltip="Return to the profile page"
+        matTooltipPosition="below"
+        matTooltipHideDelay="100"
+        matTooltipShowDelay="100"
+      ></mat-icon>
+      <h1 class="change-page__title">Profile</h1>
+    </header>
+    <div class="change-page__form-wrapper">
+      <app-form
+        [group]="formGroup"
+        [fields]="formFields"
+        (submitForm)="onSubmit()"
+      >
+        <p>Save</p>
+      </app-form>
+    </div>
+  </ng-container>
+  <ng-template #successMessage>
+    <div class="change-page__success">
+      <app-link linkPath="/account/profile">
+        <p descText>E-mail Address changed successfully!</p>
+        <p linkText>Back to profile page</p>
+      </app-link>
+    </div>
+  </ng-template>
+</section>

@@ -1,0 +1,22 @@
+<swiper
+  *ngIf="thumbsSwiper"
+  [config]="productImagesSwiperSettings"
+  [thumbs]="{ swiper: thumbsSwiper }"
+  class="product-images-slider"
+>
+  <ng-template *ngFor="let image of productImages" class="images" swiperSlide>
+    <img [src]="image" class="images__img" />
+  </ng-template>
+</swiper>
+
+<swiper
+  (swiper)="thumbsSwiper = $event"
+  [slidesPerView]="'auto'"
+  [freeMode]="true"
+  [watchSlidesProgress]="true"
+  class="thumbs-swiper"
+>
+  <ng-template *ngFor="let image of productImages" class="images" swiperSlide>
+    <img [src]="image" />
+  </ng-template>
+</swiper>

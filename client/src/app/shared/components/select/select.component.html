@@ -1,0 +1,8 @@
+<mat-form-field [ngClass]="{ 'show-label': label }">
+  <mat-label *ngIf="label">{{ label }}</mat-label>
+  <mat-select [formControlName]="name">
+    <mat-option [value]="option.value" *ngFor="let option of selectOptions">{{
+      option.label
+    }}</mat-option>
+  </mat-select>
+</mat-form-field>

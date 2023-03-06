@@ -1,0 +1,8 @@
+<div *ngIf="!hasSaleEnded" class="timer">
+  <div class="timer__time">{{ timer.hours }}</div>
+  :
+  <div class="timer__time">{{ timer.minutes }}</div>
+  :
+  <div class="timer__time">{{ timer.seconds }}</div>
+</div>
+<p *ngIf="hasSaleEnded" class="timer__text">sale has ended</p>

@@ -1,0 +1,32 @@
+<mat-card class="product-card">
+  <img
+    mat-card-image
+    [src]="
+      product.images.length > 0
+        ? product.images[0]
+        : '/assets/images/placeholder-image.webp'
+    "
+    alt="{{ product.description }}"
+    class="product-card__image"
+  />
+  <mat-card-content class="product-card__content">
+    <mat-card-title class="product-card__title"
+      >{{ product.brand }} {{ product.name }}</mat-card-title
+    >
+    <div class="product-card__rating-container">
+      <span
+        *ngFor="let number of [0, 1, 2, 3, 4]"
+        class="product-card__rating-star"
+        ><img
+          *ngIf="number < product.rating; else emptyStar"
+          src="/assets/icons/fill-star.svg"
+          alt="Rating Fill Star."
+        />
+        <ng-template #emptyStar>
+          <img src="/assets/icons/star.svg" alt="Rating Empty Star." />
+        </ng-template>
+      </span>
+    </div>
+    <p class="product-card__price">${{ product.price }}</p>
+  </mat-card-content>
+</mat-card>

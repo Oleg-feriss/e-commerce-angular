@@ -1,0 +1,68 @@
+@use '/src/styles/index' as *;
+
+:host ::ng-deep {
+  .swiper {
+    margin-top: 0.5rem;
+  }
+
+  .bestseller {
+    height: 18rem;
+    cursor: pointer;
+
+    &__wrapper {
+      margin: 0.5rem auto 0 auto;
+      border: 2px solid $color-primary-dark;
+      border-radius: $br-primary;
+      width: 80%;
+      height: 15rem;
+    }
+
+    &__img {
+      border-bottom: 2px solid $color-primary-dark;
+      width: 100%;
+      height: 10rem;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    &__info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 0;
+      height: 4.5rem;
+    }
+
+    &__price {
+      font-size: $fs-tablet;
+      font-family: $ff-primary;
+      font-weight: $fw-semibold;
+      color: $color-secondary;
+    }
+  }
+
+  .swiper-pagination-bullet-active {
+    @include desktopMinBreakPoint {
+      border-radius: 0.25rem;
+      width: 1.5rem;
+      height: 0.2rem;
+      background-color: $color-secondary;
+    }
+  }
+
+  .swiper-pagination-bullet {
+    @include desktopMinBreakPoint {
+      border-radius: $br-primary;
+      width: 1.5rem;
+      height: 0.2rem;
+    }
+  }
+
+  .swiper-pagination {
+    @include desktopMinBreakPoint {
+      transform: translateY(-0.7rem);
+    }
+  }
+}

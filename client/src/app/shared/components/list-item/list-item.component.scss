@@ -1,0 +1,41 @@
+@use '/src/styles/index' as *;
+
+.item {
+  display: grid;
+  place-items: center;
+  row-gap: 0.5rem;
+  color: $color-text-primary;
+  position: relative;
+
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 0.5rem;
+    text-decoration: none;
+    color: $color-text-primary;
+
+    &--active {
+      color: $color-secondary;
+      font-weight: $fw-bold;
+      letter-spacing: 1px;
+    }
+
+    &--column {
+      flex-direction: column;
+    }
+  }
+
+  &__icon {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  @include tabletMinBreakPoint {
+    font-size: $fs-tablet;
+
+    &__link {
+      font-size: 1rem;
+    }
+  }
+}

@@ -1,0 +1,122 @@
+<div class="container">
+  <div class="navigation-bar">
+    <a class="navigation-bar__button" routerLink=".."
+      ><mat-icon svgIcon="arrow-left"></mat-icon>
+    </a>
+
+    <div class="navigation-bar__input-wrap">
+      <input
+        type="text"
+        [placeholder]="product.name"
+        class="navigation-bar__input"
+      />
+      <button class="navigation-bar__button navigation-bar__button--search">
+        <mat-icon svgIcon="search"></mat-icon>
+      </button>
+    </div>
+
+    <div class="navigation-bar__button">
+      <mat-icon svgIcon="more-icon"></mat-icon>
+    </div>
+  </div>
+
+  <div class="product">
+    <app-product-images-swiper
+      [productImages]="product.images"
+    ></app-product-images-swiper>
+
+    <div class="product__info">
+      <div class="product__title-wrapper">
+        <h3 class="product__name">{{ product.name }}</h3>
+        <div
+          class="add-to-favorite"
+          #favIcon
+          (click)="addToFavorites(favIcon)"
+        ></div>
+      </div>
+
+      <div class="product__rating">
+        <app-rating [rating]="product.rating"></app-rating>
+      </div>
+
+      <div class="product__price">$ {{ product.price }}</div>
+    </div>
+
+    <div class="product__sizes">
+      <p class="subtitle">Select size</p>
+      <app-sizes-swiper
+        [sizes]="product.sizes"
+        (pickSize)="setProductSize($event)"
+      ></app-sizes-swiper>
+    </div>
+
+    <div class="product__colors">
+      <p class="subtitle">Select color</p>
+      <app-colors-swiper
+        [colors]="product.colors"
+        (pickColor)="setProductColor($event)"
+      ></app-colors-swiper>
+    </div>
+
+    <div class="product__specifications">
+      <p class="subtitle">Specification:</p>
+      <p class="description">
+        {{ product.description }}
+      </p>
+    </div>
+
+    <div class="product__reviews">
+      <div class="reviews-header">
+        <div class="reviews-header__wrap">
+          <p class="subtitle subtitle--review">Review Product</p>
+          <app-rating [rating]="product.rating"></app-rating>
+        </div>
+        <p class="subtitle subtitle--more">See More</p>
+      </div>
+
+      <div class="review" *ngFor="let review of product.reviews">
+        <div class="user">
+          <div class="user__photo">
+            <img [src]="review.user.photo" alt="user photo" />
+          </div>
+
+          <div class="user__info">
+            <p class="subtitle">
+              {{ review.user.name }} {{ review.user.surname }}
+            </p>
+            <div class="user__rating">
+              <app-rating [rating]="review.rating"></app-rating>
+            </div>
+          </div>
+        </div>
+
+        <p class="description">
+          {{ review.description }}
+        </p>
+
+        <div class="review__images">
+          <img
+            *ngFor="let image of review.images"
+            [src]="image"
+            alt="images posted by user for review"
+          />
+        </div>
+      </div>
+
+      <div class="related-products">
+        <p class="subtitle">You Might Also Like</p>
+        <app-related-products-swiper
+          [relatedProducts]="relatedProducts"
+        ></app-related-products-swiper>
+      </div>
+    </div>
+  </div>
+
+  <button
+    class="add-to-cart"
+    (click)="addToCart()"
+    [disabled]="isButtonDisabled"
+  >
+    Add To Cart
+  </button>
+</div>

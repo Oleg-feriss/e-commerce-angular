@@ -1,0 +1,22 @@
+<li class="item">
+  <ng-content select="[counter]"></ng-content>
+  <a
+    [routerLink]="link.name"
+    class="item__link"
+    [ngClass]="{
+      'item__link--column': linkContentDirection === defaultLinkContentDirection
+    }"
+    routerLinkActive="item__link--active"
+    [routerLinkActiveOptions]="{ exact: link.name === '' }"
+  >
+    <mat-icon
+      [svgIcon]="link.icon"
+      class="item__icon"
+      [ngClass]="{
+        'item__icon--row': linkContentDirection === 'row'
+      }"
+      attr.aria-label="{{ link.label }} icon"
+    ></mat-icon>
+    {{ link.label }}</a
+  >
+</li>

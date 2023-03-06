@@ -1,0 +1,16 @@
+<div class="card">
+  <div class="card__icon"></div>
+  <div class="card__button" *ngIf="isEditButtonVisible()">Edit Card</div>
+  <p class="card__number">{{ cardNumber }}</p>
+  <div class="card-info">
+    <div class="card-info__column">
+      <div class="card-info__text card-info__text--header">CARD HOLDER</div>
+      <div class="card-info__text">{{ card.cardHolder }}</div>
+    </div>
+
+    <div class="card-info__column">
+      <div class="card-info__text card-info__text--header">CARD SAVE</div>
+      <div class="card-info__text">{{ card.expirationDate }}</div>
+    </div>
+  </div>
+</div>

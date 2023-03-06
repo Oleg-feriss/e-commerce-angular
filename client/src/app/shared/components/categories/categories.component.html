@@ -1,0 +1,15 @@
+<section class="categories">
+  <app-mobile-home-heading heading>
+    <p class="categories__label" label>Category</p>
+    <a [routerLink]="moreCategoriesPath" class="categories__link" link
+      >More category</a
+    >
+  </app-mobile-home-heading>
+  <ul class="categories__list">
+    <app-category-item
+      *ngFor="let category of categories$ | async"
+      [category]="category"
+      [categoryLink]="'/products/' + category.name"
+    ></app-category-item>
+  </ul>
+</section>

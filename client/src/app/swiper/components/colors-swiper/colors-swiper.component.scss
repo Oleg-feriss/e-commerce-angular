@@ -1,0 +1,38 @@
+@use '/src/styles/index' as *;
+
+:host ::ng-deep {
+  .swiper-colors {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  .colors {
+    margin-left: 1rem;
+    width: 4rem;
+    height: 4rem;
+
+    @include desktopMinBreakPoint {
+      margin: 0 0.3rem 0 0;
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+  }
+
+  .color {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: $anim-fast-ease;
+    border: 0.5px solid $color-text-primary-light;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .picked {
+    border: 3px solid $color-secondary-dark;
+  }
+}

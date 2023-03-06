@@ -1,0 +1,25 @@
+@use './variables' as var;
+
+@mixin tabletMinBreakPoint {
+  @media (min-width: var.$breakpoint-tablet) {
+    @content;
+  }
+}
+
+@mixin desktopMinBreakPoint {
+  @media (min-width: var.$breakpoint-desktop) {
+    @content;
+  }
+}
+
+@mixin desktopMaxBreakPoint {
+  @media (max-width: var.$breakpoint-desktop-max) {
+    @content;
+  }
+}
+
+@mixin bigDesktopMinBreakPoint {
+  @media (min-width: var.$breakpoint-desktop-big) {
+    @content;
+  }
+}

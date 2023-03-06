@@ -1,0 +1,70 @@
+@use '/src/styles/index' as *;
+
+.address-form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    padding: 1rem 0;
+    cursor: pointer;
+  }
+
+  &__page-title {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__form-wrapper {
+    flex-grow: 1;
+    padding: 1rem 0;
+  }
+
+  .form {
+    display: flex;
+    place-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    row-gap: 0.5rem;
+    margin: 0 auto;
+    width: min(100%, 350px);
+    height: 100%;
+    font-size: 16px;
+
+    &__fields,
+    &__controls {
+      width: 100%;
+    }
+
+    &__fields {
+      display: flex;
+      flex-direction: column;
+      row-gap: 0.25rem;
+    }
+
+    app-input,
+    app-button,
+    app-autocomplete-input {
+      width: 100%;
+    }
+  }
+}
+
+@include desktopMaxBreakPoint {
+  .address-form {
+    &__header {
+      font-size: $fs-mobile;
+    }
+  }
+
+  :host ::ng-deep app-button .button {
+    box-shadow: 0px 5px 15px rgb(82 82 82 / 24%);
+
+    &:disabled {
+      box-shadow: 0px 5px 15px rgb(82 82 82 / 24%);
+    }
+  }
+}

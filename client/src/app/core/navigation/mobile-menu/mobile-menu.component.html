@@ -1,0 +1,17 @@
+<nav class="nav">
+  <app-list>
+    <app-list-item
+      *ngFor="let item of menuListItems"
+      [link]="item"
+      [linkContentDirection]="columnDirection"
+      list
+    >
+      <span
+        class="nav__counter"
+        *ngIf="item.label === 'Cart' && (cartCount$ | async) as counter"
+        [attr.counter]="counter"
+        counter
+      ></span>
+    </app-list-item>
+  </app-list>
+</nav>

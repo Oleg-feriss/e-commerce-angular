@@ -1,0 +1,45 @@
+@use '../styles/change-page.style.scss';
+@use '/src/styles/variables' as var;
+
+:host {
+  ::ng-deep .mat-form-field {
+    &-infix {
+      display: flex;
+      padding: 0;
+    }
+
+    &-flex {
+      border: 1px solid var.$color-border-neutral-light;
+      border-radius: 5px;
+      padding-inline: 0.5rem;
+    }
+
+    &-subscript-wrapper {
+      padding-inline: 0.5rem;
+    }
+
+    &-underline {
+      display: none;
+    }
+
+    &.mat-focused {
+      .mat-form-field-flex {
+        border: 1px solid var.$color-secondary;
+      }
+
+      .mat-form-field-label {
+        color: var.$color-text-primary;
+      }
+    }
+
+    &-invalid {
+      .mat-form-field-flex {
+        border: 1px solid var.$color-tertiary-light;
+      }
+
+      .mat-form-field-label {
+        color: var.$color-tertiary-light;
+      }
+    }
+  }
+}

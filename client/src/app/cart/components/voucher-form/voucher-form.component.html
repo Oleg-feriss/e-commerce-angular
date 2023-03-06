@@ -1,0 +1,11 @@
+<form [formGroup]="formGroup" (submit)="onSubmit()" class="voucher">
+  <app-input
+    [group]="formGroup"
+    [name]="formField.name"
+    [type]="formField.type"
+    [placeholder]="formField.placeholder"
+    [customErrors]="formField.customErrors"
+    ><p label>{{ formField.label }}</p></app-input
+  >
+  <app-button>Apply</app-button>
+</form>

@@ -1,0 +1,29 @@
+@use '/src/styles/index' as *;
+
+:host {
+  display: flex;
+  gap: 0.5rem;
+
+  @include desktopMinBreakPoint {
+    gap: 0.3rem;
+  }
+}
+
+.rating {
+  width: 1.5rem;
+  height: 1.5rem;
+  mask-image: url('../../../../assets/icons/star.svg');
+  -webkit-mask-image: url('../../../../assets/icons/star.svg');
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  background-color: $color-text-primary;
+
+  @include desktopMinBreakPoint {
+    width: 0.7rem;
+    height: 0.7rem;
+  }
+
+  &--filled {
+    background-color: $color-star;
+  }
+}

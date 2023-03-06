@@ -1,0 +1,10 @@
+<swiper class="swiper-colors" [config]="colorsSwiperSettings">
+  <ng-template *ngFor="let color of colors" class="colors" swiperSlide>
+    <div
+      class="color"
+      #pickedColor
+      (click)="onPick(pickedColor)"
+      [style.backgroundColor]="color"
+    ></div>
+  </ng-template>
+</swiper>

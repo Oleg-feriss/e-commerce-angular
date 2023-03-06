@@ -1,0 +1,136 @@
+@use '/src/styles/index' as *;
+
+:host ::ng-deep {
+  position: relative;
+
+  .swiper {
+    margin: 0 auto;
+    border-top: 1px solid $color-border-neutral-light;
+
+    @include desktopMinBreakPoint {
+      top: -0.5rem;
+    }
+
+    @include bigDesktopMinBreakPoint {
+      top: -0.1rem;
+    }
+  }
+
+  .swiper .swiper-slide {
+    height: fit-content; 
+  }
+
+  .sale {
+    position: relative;
+    overflow: hidden;
+    margin: 1rem 1rem 3rem 1rem;
+    border-radius: 0.75rem;
+    height: 16rem;
+    background-color: $color-text-primary-dark;
+
+    @include desktopMinBreakPoint {
+      margin: 0;
+      border-radius: 0;
+      height: 22rem;
+    }
+
+    &__image {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      opacity: 0.6;
+      border: none;
+      outline: none;  
+    }
+
+    &__content {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin: 2rem 0 0 2rem;
+      width: 80%;
+      height: 70%;
+      color: $color-primary;
+
+      @include desktopMinBreakPoint {
+        justify-content: center;
+        margin: 2rem 0 0 4rem;
+        width: 20rem;
+      }
+    }
+
+    &__text {
+      font-size: 2rem;
+      font-family: $ff-primary;
+      font-weight: $fw-semibold;
+      letter-spacing: 0.5px;
+      color: $color-primary;
+    }
+  }
+
+  .sale-products {
+    display: none;
+
+    @include desktopMinBreakPoint {
+      position: relative;
+      top: -4rem;
+      display: flex;
+      margin: 0 auto;
+      width: 36rem;
+      height: 12rem;
+    }
+  }
+
+  .sale-product {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    overflow: hidden;
+
+    &:first-child {
+      border-radius: $br-primary 0 0 $br-primary;
+    }
+
+    &:last-child {
+      border-radius: 0 $br-primary $br-primary 0;
+    }
+
+    &__image {
+      position: absolute;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    &__name {
+      position: absolute;
+      display: -webkit-box;
+      overflow: hidden;
+      margin: 0.5rem;
+      width: 7rem;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      text-overflow: ellipsis;
+      font-size: $fs-tablet;
+      font-family: $ff-primary;
+      font-weight: $fw-semibold;
+      color: $color-text-primary-dark;
+      text-overflow: ellipsis;
+    }
+
+    &__price {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      margin: 0.5rem;
+      font-size: $fs-mobile;
+      font-family: $ff-primary;
+      font-weight: $fw-semibold;
+      color: $color-secondary;
+    }
+  }
+}

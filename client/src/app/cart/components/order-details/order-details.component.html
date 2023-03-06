@@ -1,0 +1,14 @@
+<ul class="details">
+  <li class="details__item">
+    Items ({{ currentCartCount$ | async }})
+    <span *ngIf="totalPrice" class="details__price">${{ totalPrice }}</span>
+  </li>
+  <li *ngIf="currentCartCount$ | async" class="details__item">
+    Shipping
+    <span class="details__price">${{ details.shipping }}</span>
+  </li>
+  <li *ngIf="currentCartCount$ | async" class="details__item">
+    Import changes
+    <span class="details__price">${{ details.importChanges }}</span>
+  </li>
+</ul>

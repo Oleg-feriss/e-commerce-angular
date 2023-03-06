@@ -1,0 +1,39 @@
+@use '/src/styles/variables' as var;
+@use '/src/styles/mixins' as mixins;
+
+.categories {
+  width: 100%;
+  padding: 1rem 5%;
+
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 1rem 0;
+    height: 100%;
+    width: 100%;
+    overflow-x: scroll;
+  }
+
+  &__label {
+    color: var.$color-text-primary-dark;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: var.$color-secondary;
+  }
+
+  @include mixins.tabletMinBreakPoint {
+    font-size: var.$fs-tablet;
+
+    &__list {
+      justify-content: center;
+      overflow: hidden;
+    }
+  }
+
+  @include mixins.desktopMinBreakPoint {
+    display: none;
+  }
+}

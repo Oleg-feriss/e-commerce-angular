@@ -1,0 +1,25 @@
+@use '/src/styles/mixins' as mixins;
+
+.category-products {
+  margin-top: 10em;
+  margin-left: 5em;
+
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(3, 9em);
+    gap: 1em;
+  }
+}
+
+@include mixins.desktopMaxBreakPoint {
+  .category-products {
+    margin-top: 5em;
+    margin-inline: 1em;
+
+    &__container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1em;
+    }
+  }
+}

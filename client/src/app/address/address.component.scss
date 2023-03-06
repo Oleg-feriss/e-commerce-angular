@@ -1,0 +1,131 @@
+@use '/src/styles/index' as *;
+
+.address {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &__header {
+    display: none;
+  }
+
+  &__content-wrapper {
+    flex-grow: 1;
+    margin-inline: auto;
+    padding: 1rem 0;
+    width: min(100%, 350px);
+    height: 100%;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+    margin-bottom: 3em;
+    width: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    border: 1px solid $color-secondary;
+    border-radius: 1em;
+    width: 100%;
+    padding: 2em;
+  }
+
+  &__buttons-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2em;
+    margin-top: 2em;
+    width: 80%;
+  }
+
+  &__button {
+    border: none;
+    border-radius: 0.5em;
+    background-color: $color-secondary;
+    font-size: $fs-tablet;
+    color: $color-primary;
+
+    &:hover {
+      cursor: pointer;
+      transition: $anim-fast-ease;
+      border: 1px solid $color-secondary;
+      background-color: $color-primary;
+      color: $color-secondary;
+    }
+  }
+
+  &__edit-button {
+    width: 6em;
+    height: 2.5em;
+  }
+
+  &__add-button {
+    margin-top: auto;
+    padding: 1em 0;
+    width: 100%;
+    height: 3em;
+  }
+
+  &__bin-icon {
+    width: 2em;
+    height: 2em;
+
+    &:hover {
+      cursor: pointer;
+      color: $color-tertiary-dark;
+    }
+  }
+}
+
+@include desktopMaxBreakPoint {
+  .address {
+    font-size: $fs-mobile;
+
+    &__header {
+      display: flex;
+      align-items: center;
+      padding: 1rem 0;
+    }
+
+    &__content-wrapper {
+      height: 80%;
+    }
+
+    &__header {
+      font-size: $fs-mobile;
+    }
+
+    &__edit-button {
+      font-size: inherit;
+    }
+
+    &__add-button {
+      font-size: inherit;
+    }
+
+    &__bin-icon {
+      width: 2.5em;
+      height: 2.5em;
+    }
+  }
+}

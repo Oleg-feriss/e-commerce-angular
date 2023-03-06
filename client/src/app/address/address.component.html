@@ -1,0 +1,41 @@
+<section class="address">
+  <header class="address__header" routerLink="/account">
+    <mat-icon svgIcon="arrow_left" class="address__arrow-icon"></mat-icon>
+    <h1 class="address__page-title">Account</h1>
+  </header>
+  <div class="address__content-wrapper">
+    <div class="address__content">
+      <ul class="address__list">
+        <li class="address__item" *ngFor="let userAddress of userAddresses">
+          <h4 class="address__item-title">{{ userAddress.country }}</h4>
+          <p class="address__item-info">
+            {{ userAddress.firstAddress }}
+            {{ userAddress.secondAddress ? ',' : '' }}
+            {{ userAddress.secondAddress }}
+          </p>
+          <p class="address__item-phone">{{ userAddress.phoneNumber }}</p>
+          <div class="address__buttons-wrapper">
+            <button
+              class="address__button address__edit-button"
+              [routerLink]="['/account/address/address-form']"
+              [queryParams]="{ id: userAddress.id }"
+            >
+              Edit
+            </button>
+            <mat-icon
+              svgIcon="bin"
+              class="address__bin-icon"
+              (click)="onDeleteAddress(userAddress)"
+            ></mat-icon>
+          </div>
+        </li>
+      </ul>
+      <button
+        class="address__button address__add-button"
+        routerLink="address-form"
+      >
+        Add Address
+      </button>
+    </div>
+  </div>
+</section>
