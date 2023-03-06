@@ -1,11 +1,11 @@
-##Server
+## Server
 
-cd .\server\
-npm install
-npm run server
+cd .\server\ <br/>
+npm install <br/>
+npm run server <br/>
 
-##Client
+## Client
 
-cd ..\client\
-npm install
-ng serve
+cd ..\client\ <br/>
+npm install <br/>
+ng serve <br/>
